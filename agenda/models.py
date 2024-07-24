@@ -13,7 +13,7 @@ class Categoria(models.Model):
 class Evento(models.Model):
     nome = models.CharField(max_length=255)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    
+    data = models.DateField(null=True)
     local = models.CharField(max_length=255, blank=True)
     link = models.CharField(max_length=255, blank=True)
     

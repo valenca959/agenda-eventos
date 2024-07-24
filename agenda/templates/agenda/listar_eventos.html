@@ -51,7 +51,7 @@
                     {% elif evento.link %}
                         <td>{{ evento.link }}</td>
                     {% endif %}
-                    <td>{{ evento.data }}</td>
+                    <td>{% if evento.data%}{{ evento.data | date:"d/m/Y"}}{% else %}A definir{% endif %}</td>
                     <td><a href="exibir_evento.html">Ver detalhe</a></td>
                 </tr>
             {% endfor %}
