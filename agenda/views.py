@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 from agenda.models import Evento
 from datetime import date
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
 
 # Create your views here.
 def listar_eventos(request):
@@ -15,14 +16,21 @@ def listar_eventos(request):
 
 
 
-def exibir_eventos(request):
-    evento = {
-        'nome': 'teste',
-        'categoria': 'teste',
-        'local': 'teste',
-    }
+def exibir_eventos(request, id):
+    evento = get_object_or_404(Evento, id=id)
     return render(
         request=request, 
         template_name="agenda/exibir_evento.html", 
         context={'evento': evento})
 
+
+def participar_evento(request):
+    evento_id = request.POST.get('evento_id')
+    evento = get_object_or_404(Evento, id=evento_id)
+    evento.participantes += 1
+    evento.save()
+
+    return HttpResponseRedirect(reverse('exibir_evento', args=(evento_id,)))
+
+def hello(request):
+    return HttpResponse("Hello World!")

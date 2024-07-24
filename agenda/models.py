@@ -16,6 +16,7 @@ class Evento(models.Model):
     data = models.DateField(null=True)
     local = models.CharField(max_length=255, blank=True)
     link = models.CharField(max_length=255, blank=True)
+    participantes = models.IntegerField(default=0)
     
     def __str__(self):
         return f'{self.nome} - {self.categoria} - {self.local} - {self.link}'
