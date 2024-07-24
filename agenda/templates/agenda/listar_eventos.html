@@ -2,24 +2,32 @@
     <head>
         <style>
             body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
                 display: flex;
-                justify-content: center;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center; 
+                justify-content: center;
+                margin: 0;
+                padding: 20px;
             }
+
             h1 {
                 text-align: center;
                 width: 100%;
+                color: #333;
+                margin-bottom: 20px;
             }
 
             table {
                 width: 80%;
                 border-collapse: collapse;
-            }
-
-            table, th, td {
-                border: 1px solid black;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                background-color: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                margin: 20px 0;
+                border: 2px solid #4CAF50;
             }
 
             th, td {
@@ -28,7 +36,36 @@
             }
 
             th {
-                background-color: #f2f2f2;
+                background-color: #4CAF50;
+                color: white;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            td {
+                border-bottom: 1px solid #ddd;
+            }
+
+            a {
+                color: #4CAF50;
+                text-decoration: none;
+                padding: 8px 12px;
+                border: 1px solid #4CAF50;
+                border-radius: 4px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            a:hover {
+                background-color: #4CAF50;
+                color: white;
             }
         </style>
     </head>
