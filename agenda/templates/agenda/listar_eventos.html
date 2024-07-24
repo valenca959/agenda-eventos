@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; 
+            }
+            h1 {
+                text-align: center;
+                width: 100%;
+            }
+
+            table {
+                width: 80%;
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Proximos Eventos</h1>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Local/Link</th>
+                <th>Data</th>
+                <th>Ação</th>
+            </tr>
+            {% for evento in eventos %}
+                <tr>
+                    <td>{{ evento.nome }}</td>
+                    <td>{{ evento.categoria.nome }}</td>
+                    {% if evento.local%}
+                        <td>{{ evento.local }}</td>
+                    {% elif evento.link %}
+                        <td>{{ evento.link }}</td>
+                    {% endif %}
+                    <td>{{ evento.data }}</td>
+                    <td><a href="exibir_evento.html">Ver detalhe</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
